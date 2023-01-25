@@ -1,0 +1,320 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("absoulute shit script", "Midnight")
+local Home = Window:NewTab("Home")
+local HomeSection = Home:NewSection("autoclicker")
+HomeSection:NewToggle("autoclicker", "autoclicks for you", function(state)
+    if state then
+        _G.heckautoclicker = true
+        while _G.heckautoclicker == true do
+            local args = {
+                [1] = "Main"
+            }
+            
+            game:GetService("ReplicatedStorage").Events.Tap:FireServer(unpack(args))
+            wait()
+        end
+    else
+        _G.heckautoclicker = false 
+    end
+end)
+local Eggs = Window:NewTab("Eggs")
+local EggsSection = Eggs:NewSection("auto hatch Eggs")
+EggsSection:NewToggle("starter Egg", "ToggleInfo", function(state)
+    if state then
+        _G.heckautohatchstarter = true
+        while _G.heckautohatchstarter == true do
+        local args = {
+            [1] = {},
+            [2] = "Starter",
+            [3] = 1
+        }
+        
+        game:GetService("ReplicatedStorage").Events.HatchEgg:InvokeServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautohatchstarter = false
+    end
+end)
+EggsSection:NewToggle("wood Egg", "automatiacally hatches for you", function(state)
+    if state then
+        _G.heckautohatchwood = true
+        while _G.heckautohatchwood == true do
+        local args = {
+            [1] = {},
+            [2] = "Wood Egg",
+            [3] = 1
+        }
+        
+        game:GetService("ReplicatedStorage").Events.HatchEgg:InvokeServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautohatchwood = false
+    end
+end)
+EggsSection:NewToggle("jungle Egg", "automatiacally hatches for you", function(state)
+    if state then
+        _G.heckautohatchjungle = true
+        while _G.heckautohatchjungle == true do
+            local args = {
+                [1] = {},
+                [2] = "Jungle Egg",
+                [3] = 1
+            }
+            
+            game:GetService("ReplicatedStorage").Events.HatchEgg:InvokeServer(unpack(args))
+            wait()
+        end           
+    else
+        _G.heckautohatchjungle = false
+    end
+end)
+local Rebirths = Window:NewTab("Rebirths")
+local RebirthsSection = Rebirths:NewSection("auto rebirth on")
+RebirthsSection:NewToggle("1", "auto rebirth on 1:", function(state)
+    if state then
+        _G.heckautorebirth1 = true
+        while _G.heckautorebirth1 == true do
+        local args = {
+            [1] = 1
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth1 = false
+    end
+end)
+RebirthsSection:NewToggle("5", "auto rebirth on 5:", function(state)
+    if state then
+        _G.heckautorebirth5 = true
+        while _G.heckautorebirth5 == true do
+        local args = {
+            [1] = 5
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth5 = false
+    end
+end)
+RebirthsSection:NewToggle("10", "auto rebirth on 10:", function(state)
+    if state then
+        _G.heckautorebirth10 = true
+        while _G.heckautorebirth10 == true do
+        local args = {
+            [1] = 10
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth10 = false
+    end
+end)
+RebirthsSection:NewToggle("20", "auto rebirth on 20:", function(state)
+    if state then
+        _G.heckautorebirth20 = true
+        while _G.heckautorebirth20 == true do
+        local args = {
+            [1] = 20
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth20 = false
+    end
+end)
+RebirthsSection:NewToggle("100", "auto rebirth on 100:", function(state)
+    if state then
+        _G.heckautorebirth100 = true
+        while _G.heckautorebirth100 == true do
+        local args = {
+            [1] = 100
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth100 = false
+    end
+end)
+RebirthsSection:NewToggle("500", "auto rebirth on 500:", function(state)
+    if state then
+        _G.heckautorebirth500 = true
+        while _G.heckautorebirth500 == true do
+        local args = {
+            [1] = 500
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth500 = false
+    end
+end)
+RebirthsSection:NewToggle("4000", "auto rebirth on 4000:", function(state)
+    if state then
+        _G.heckautorebirth4000 = true
+        while _G.heckautorebirth4000 == true do
+        local args = {
+            [1] = 4000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth4000 = false
+    end
+end)
+RebirthsSection:NewToggle("13.5k", "auto rebirth on 13.5k:", function(state)
+    if state then
+        _G.heckautorebirth13500 = true
+        while _G.heckautorebirth13500 == true do
+        local args = {
+            [1] = 13500
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth13500 = false
+    end
+end)
+RebirthsSection:NewToggle("32k", "auto rebirth on 32k:", function(state)
+    if state then
+        _G.heckautorebirth32000 = true
+        while _G.heckautorebirth32000 == true do
+        local args = {
+            [1] = 32000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth32000 = false
+    end
+end)
+RebirthsSection:NewToggle("62.5k", "auto rebirth on 62.5k:", function(state)
+    if state then
+        _G.heckautorebirth62500 = true
+        while _G.heckautorebirth62500 == true do
+        local args = {
+            [1] = 62500
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth32000 = false
+    end
+end)
+RebirthsSection:NewToggle("108k", "auto rebirth on 108k:", function(state)
+    if state then
+        _G.heckautorebirth108000 = true
+        while _G.heckautorebirth108000 == true do
+        local args = {
+            [1] = 108000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth108000 = false
+    end
+end)
+RebirthsSection:NewToggle("171.5k", "auto rebirth on 171.5k:", function(state)
+    if state then
+        _G.heckautorebirth171500 = true
+        while _G.heckautorebirth171500 == true do
+        local args = {
+            [1] = 171500
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth171500 = false
+    end
+end)
+RebirthsSection:NewToggle("256k", "auto rebirth on 256k:", function(state)
+    if state then
+        _G.heckautorebirth256000 = true
+        while _G.heckautorebirth256000 == true do
+        local args = {
+            [1] = 32000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth256000 = false
+    end
+end)
+RebirthsSection:NewToggle("364k", "auto rebirth on 364k:", function(state)
+    if state then
+        _G.heckautorebirth32000 = true
+        while _G.heckautorebirth32000 == true do
+        local args = {
+            [1] = 364000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth32000 = false
+    end
+end)
+local PortalTp = Window:NewTab("Portal Tp")
+local PortalTpSection = PortalTp:NewSection("portal tp")
+PortalTpSection:NewButton("forest", "tp to forest", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-163.98446655273438, 987.5964965820312, -403.33941650390625), Vector3.new(-0, -0, -1))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("flower", "tp to flower", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-179.51564025878906, 1524.6309814453125, -682.4987182617188), Vector3.new(0, 0, 1))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("not occupied", "ButtonInfo", function()
+end)
+PortalTpSection:NewButton("not occupied", "ButtonInfo", function()
+end)
+PortalTpSection:NewButton("not occupied", "ButtonInfo", function()
+end)
+PortalTpSection:NewButton("not occupied", "ButtonInfo", function()
+end)
+local HomeSection = Home:NewSection("others")
+HomeSection:NewToggle("nothing rn", "litrally nothing :skull:", function(state)
+    if state then
+        print("Toggle On")
+    else
+        print("Toggle Off")
+    end
+end)
+local HomeSection = Home:NewSection("speed and stuff")
+HomeSection:NewSlider("WalkSpeed", "Change ur WalkSpeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
