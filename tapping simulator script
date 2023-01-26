@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("absoulute shit script", "Midnight")
+local Window = Library.CreateLib("ABSOULUTE SHIT SCRIPT", colors)
 local Home = Window:NewTab("Home")
 local HomeSection = Home:NewSection("autoclicker")
 HomeSection:NewToggle("autoclicker", "autoclicks for you", function(state)
@@ -18,7 +18,25 @@ HomeSection:NewToggle("autoclicker", "autoclicks for you", function(state)
     end
 end)
 local Eggs = Window:NewTab("Eggs")
-local EggsSection = Eggs:NewSection("auto hatch Eggs")
+local EggsSection = Eggs:NewSection("put Egg at last too or wont work")
+EggsSection:NewTextBox("click 3 dots ->", "type the name of the egg u wanna auto open", function(txt)
+        _G.proautohatch = true
+        while _G.proautohatch do
+            wait(1)
+        local args = {
+            [1] = {},
+            [2] = txt,
+            [3] = 1
+        }
+        
+        game:GetService("ReplicatedStorage").Events.HatchEgg:InvokeServer(unpack(args))
+        end
+        end)
+
+EggsSection:NewButton("Stop auto hatch", "Stops auto hatching", function()
+    _G.proautohatch = false
+end)
+
 EggsSection:NewToggle("starter Egg", "ToggleInfo", function(state)
     if state then
         _G.heckautohatchstarter = true
@@ -44,7 +62,7 @@ EggsSection:NewToggle("wood Egg", "automatiacally hatches for you", function(sta
             [1] = {},
             [2] = "Wood Egg",
             [3] = 1
-        }
+        } 
         
         game:GetService("ReplicatedStorage").Events.HatchEgg:InvokeServer(unpack(args))
         wait()
@@ -70,8 +88,27 @@ EggsSection:NewToggle("jungle Egg", "automatiacally hatches for you", function(s
         _G.heckautohatchjungle = false
     end
 end)
+
 local Rebirths = Window:NewTab("Rebirths")
 local RebirthsSection = Rebirths:NewSection("auto rebirth on")
+RebirthsSection:NewLabel("dont do like 1M")
+RebirthsSection:NewLabel("do like 1000000 instead")
+RebirthsSection:NewLabel("1M = 6 zero,1B = 9 zero ")
+RebirthsSection:NewTextBox("click 3 dots ->", "type the no. u wanna auto rebirth at", function(txt)
+            _G.proautorebirth = true
+            while _G.proautorebirth == true do
+                local args = {
+                    [1] = txt
+                }
+                
+                game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait()
+    end
+end)
+RebirthsSection:NewButton("Stop auto rebirth", "Stops auto rebirthing from textbox above", function()
+_G.proautorebirth = false
+end)
+
 RebirthsSection:NewToggle("1", "auto rebirth on 1:", function(state)
     if state then
         _G.heckautorebirth1 = true
@@ -282,8 +319,71 @@ RebirthsSection:NewToggle("364k", "auto rebirth on 364k:", function(state)
         _G.heckautorebirth32000 = false
     end
 end)
+RebirthsSection:NewToggle("500k", "auto rebirth on 500k:", function(state)
+    if state then
+        _G.heckautorebirth500000 = true
+        while _G.heckautorebirth500000 == true do
+        local args = {
+            [1] = 500000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth500000 = false
+    end
+end)
+RebirthsSection:NewToggle("1M", "auto rebirth on 1M:", function(state)
+    if state then
+        _G.heckautorebirth1000000 = true
+        while _G.heckautorebirth1000000 == true do
+        local args = {
+            [1] = 1000000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth1000000 = false
+    end
+end)
+RebirthsSection:NewToggle("2M", "auto rebirth on 2M:", function(state)
+    if state then
+        _G.heckautorebirth2000000 = true
+        while _G.heckautorebirth2000000 == true do
+        local args = {
+            [1] = 2000000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth2000000 = false
+    end
+end)
+RebirthsSection:NewToggle("100M", "auto rebirth on 100M:", function(state)
+    if state then
+        _G.heckautorebirth100000000 = true
+        while _G.heckautorebirth100000000 == true do
+        local args = {
+            [1] = 100000000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth100000000 = false
+    end
+end)
 local PortalTp = Window:NewTab("Portal Tp")
-local PortalTpSection = PortalTp:NewSection("portal tp")
+local PortalTpSection = PortalTp:NewSection("greenlands world")
+PortalTpSection:NewButton("spawn / greenlands", "tp to spawn / greenlands", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-75.6391373, 16.7458324, -477.263794, 0.785602212, 1.4105705e-08, 0.618731916, -4.04176674e-08, 1, 2.8520434e-08, -0.618731916, -4.74134154e-08, 0.785602212)
+end)
 PortalTpSection:NewButton("forest", "tp to forest", function()
     local args = {
         [1] = CFrame.new(Vector3.new(-163.98446655273438, 987.5964965820312, -403.33941650390625), Vector3.new(-0, -0, -1))
@@ -298,23 +398,186 @@ PortalTpSection:NewButton("flower", "tp to flower", function()
     
     game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
 end)
-PortalTpSection:NewButton("not occupied", "ButtonInfo", function()
+PortalTpSection:NewButton("swamp", "tp to swamp", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-264.35888671875, 2123.06298828125, -694.6613159179688), Vector3.new(0, 0, 1))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
 end)
-PortalTpSection:NewButton("not occupied", "ButtonInfo", function()
+PortalTpSection:NewButton("snow", "tp to snow", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-201.77197265625, 2944.481689453125, -470.40875244140625), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
 end)
-PortalTpSection:NewButton("not occupied", "ButtonInfo", function()
+PortalTpSection:NewButton("dessert", "tp to dessert", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-166.28515625, 4235.38916015625, -779.1531372070312), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
 end)
-PortalTpSection:NewButton("not occupied", "ButtonInfo", function()
+PortalTpSection:NewButton("death", "tp to death", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-276.2012634277344, 5425.62158203125, -480.28778076171875), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("beach", "tp to beach", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-140.3450927734375, 6881.630859375, -495.68212890625), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))
+end)
+PortalTpSection:NewButton("mines", "tp to mines", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-243.2586669921875, 8376.5166015625, -483.8897705078125), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("cloud", "tp to cloud", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-253.30348205566406, 11262.8818359375, -237.8885955810547), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("coral", "tp to coral", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-511.0211181640625, 13812.0322265625, -543.2418212890625), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))      
+end)
+PortalTpSection:NewButton("darkheart", "tp to darkheart", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(-511.0211181640625, 13812.0322265625, -543.2418212890625), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("flamelands world", "tp to flamelands world", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1137.614013671875, 170.30052185058594, -2859.725341796875), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+local PortalTpSection = PortalTp:NewSection("flamelands world")
+PortalTpSection:NewButton("molten", "tp to molten", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1280.5958251953125, 2193.828125, -2885.144287109375), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("blue magma", "tp to blue magma", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1401.12939453125, 5240.41943359375, -2953.919677734375), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("purple magma", "tp to purple magma", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1319.7027587890625, 7662.02490234375, -2958.0576171875), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("yellow magma", "tp to yellow magma", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1403.5440673828125, 10404.09765625, -2903.138427734375), Vector3.new(-0.7070823907852173, -0, 0.7071312069892883))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("red magma", "tp to red magma", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1426.2127685546875, 13353.703125, -2900.90087890625), Vector3.new(-0.7070823907852173, -0, 0.7071312069892883))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("fantasy world", "tp to fantasy world", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1415.12451171875, 169.6440887451172, -5604.470703125), Vector3.new(-1, -0, -0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+local PortalTpSection = PortalTp:NewSection("fantasy world")
+PortalTpSection:NewButton("mystic mire", "tp to mystic mire", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1205.412353515625, 2037.730224609375, -5585.404296875), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("castle", "tp to castle", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1216.9140625, 5124.0302734375, -5632.39990234375), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("candy", "tp to candy", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1179.677490234375, 8660.728515625, -5587.80517578125), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("festival", "tp to festival", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1227.37744140625, 12284.5283203125, -5571.904296875), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
+end)
+PortalTpSection:NewButton("japenese fall", "tp to japenese fall", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1189.677734375, 16327.54296875, -5569.50634765625), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))
+end)
+PortalTpSection:NewButton("space", "tp to space", function()
+    local args = {
+        [1] = CFrame.new(Vector3.new(1172.019287109375, 147.04409790039062, -7965.728515625), Vector3.new(1, 0, 0))
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))    
 end)
 local HomeSection = Home:NewSection("others")
-HomeSection:NewToggle("nothing rn", "litrally nothing :skull:", function(state)
-    if state then
-        print("Toggle On")
-    else
-        print("Toggle Off")
-    end
+HomeSection:NewKeybind("toggle gui keybind", "set keybind to open and close ur gui", Enum.KeyCode.F, function()
+	Library:ToggleUI()
 end)
-local HomeSection = Home:NewSection("speed and stuff")
-HomeSection:NewSlider("WalkSpeed", "Change ur WalkSpeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+local HomeSection = Home:NewSection("speed and shit")
+HomeSection:NewSlider("WalkSpeed", "change ur damn WalkSpeed ofc", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
+HomeSection:NewSlider("not occupied", "not in use", 1000, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    print ('this is not in use lol')
+end)
+local ChangeLogs = Window:NewTab("ChangeLogs")
+local ChangeLogsSection = ChangeLogs:NewSection("Ugly Ass ChangeLogs")
+ChangeLogsSection:NewLabel("made autoclicker faster!")
+ChangeLogsSection:NewLabel("added auto hatch eggs u want")
+ChangeLogsSection:NewLabel("added alot more tp options")
+ChangeLogsSection:NewLabel("added toggle gui keybind")
+ChangeLogsSection:NewLabel("added alot more rebirth options")
+ChangeLogsSection:NewLabel("added auto rebirth on what value u want")
+
+local Credits = Window:NewTab("Credits")
+local CreditsSection = Credits:NewSection("Ugly Ass Credits")
+CreditsSection:NewLabel("Discord: hello darkness my freind")
+CreditsSection:NewLabel("YouTube: HACKING WITH GAMER")
+local CreditsSection = Credits:NewSection("special thanks to")
+CreditsSection:NewLabel("Advid and Gaming Resources")
+CreditsSection:NewLabel("for helping")
