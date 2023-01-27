@@ -93,7 +93,7 @@ local Rebirths = Window:NewTab("Rebirths")
 local RebirthsSection = Rebirths:NewSection("auto rebirth on")
 RebirthsSection:NewLabel("dont do like 1M")
 RebirthsSection:NewLabel("do like 1000000 instead")
-RebirthsSection:NewLabel("1M = 6 zero,1B = 9 zero ")
+RebirthsSection:NewLabel("1M = 6 zero , 1B = 9 zero , 1T = 12 zero")
 RebirthsSection:NewTextBox("click 3 dots ->", "type the no. u wanna auto rebirth at", function(txt)
             _G.proautorebirth = true
             while _G.proautorebirth == true do
@@ -379,6 +379,51 @@ RebirthsSection:NewToggle("100M", "auto rebirth on 100M:", function(state)
         _G.heckautorebirth100000000 = false
     end
 end)
+RebirthsSection:NewToggle("1B", "auto rebirth on 1B:", function(state)
+    if state then
+        _G.heckautorebirth1000000000 = true
+        while _G.heckautorebirth1000000000 == true do
+        local args = {
+            [1] = 100000000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth1000000000 = false
+    end
+end)
+RebirthsSection:NewToggle("1T", "auto rebirth on 100M:", function(state)
+    if state then
+        _G.heckautorebirth1000000000000 = true
+        while _G.heckautorebirth1000000000000 == true do
+        local args = {
+            [1] = 1000000000000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth1000000000000 = false
+    end
+end)
+RebirthsSection:NewToggle("100T", "auto rebirth on 100M:", function(state)
+    if state then
+        _G.heckautorebirth100000000000000 = true
+        while _G.heckautorebirth100000000000000 == true do
+        local args = {
+            [1] = 100000000000000
+        }
+        
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+    end
+    else
+        _G.heckautorebirth100000000000000 = false
+    end
+end)
 local PortalTp = Window:NewTab("Portal Tp")
 local PortalTpSection = PortalTp:NewSection("greenlands world")
 PortalTpSection:NewButton("spawn / greenlands", "tp to spawn / greenlands", function()
@@ -557,6 +602,17 @@ end)
 local HomeSection = Home:NewSection("others")
 HomeSection:NewKeybind("toggle gui keybind", "set keybind to open and close ur gui", Enum.KeyCode.F, function()
 	Library:ToggleUI()
+end)
+HomeSection:NewToggle("auto claim daily rewards", "auto claims daily rewards:", function(state)
+    if state == true then 
+        _G.heckdailyrewards = true
+        while _G.heckdailyrewards == true do
+        game:GetService("ReplicatedStorage").Events.OpenDailyReward:InvokeServer()
+        wait()
+        end
+    else
+        _G.heckdailyrewards = false
+    end
 end)
 local HomeSection = Home:NewSection("speed and shit")
 HomeSection:NewSlider("WalkSpeed", "change ur damn WalkSpeed ofc", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
